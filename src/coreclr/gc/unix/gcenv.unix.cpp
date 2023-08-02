@@ -10,6 +10,7 @@
 #include <cinttypes>
 #include <memory>
 #include <pthread.h>
+#include <sched.h>
 #include <signal.h>
 
 #include "config.gc.h"
@@ -1079,6 +1080,7 @@ bool GCToOSInterface::BoostThreadPriority()
 #else // __APPLE__
     // [LOCALGC TODO] Thread priority for macos
     return false;
+#endif
 }
 
 // Set the set of processors enabled for GC threads for the current process based on config specified affinity mask and set
